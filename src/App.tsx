@@ -124,6 +124,7 @@ function App() {
               header: {
                 background: `linear-gradient(135deg, var(--mantine-color-indigo-7) 0%, var(--mantine-color-blue-7) 100%)`,
                 borderBottom: "none",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
               },
             }),
           },
@@ -131,7 +132,7 @@ function App() {
             styles: {
               root: {
                 color: "white",
-                fontSize: "1.8rem",
+                fontSize: "2rem",
               },
             },
           },
@@ -141,14 +142,20 @@ function App() {
             },
             styles: (theme: MantineTheme) => ({
               root: {
-                backgroundColor: "var(--mantine-color-white)",
-                backdropFilter: "blur(8px)",
-                borderRadius: theme.radius.lg,
-                boxShadow: theme.shadows.sm,
-                transition: "transform 200ms ease, box-shadow 200ms ease",
-                "&:hover": {
-                  transform: "translateY(-2px)",
-                  boxShadow: theme.shadows.md,
+                "&:not(.header)": {
+                  backgroundColor: "var(--mantine-color-white)",
+                  backdropFilter: "blur(8px)",
+                  borderRadius: theme.radius.lg,
+                  boxShadow: theme.shadows.sm,
+                  transition: "transform 200ms ease, box-shadow 200ms ease",
+                  "&:hover": {
+                    transform: "translateY(-2px)",
+                    boxShadow: theme.shadows.md,
+                  },
+                },
+                "&.header": {
+                  background: "transparent",
+                  padding: 0,
                 },
               },
             }),
@@ -168,11 +175,14 @@ function App() {
         },
       }}
     >
-      <AppShell header={{ height: 70 }} padding="0">
+      <AppShell header={{ height: 80 }} padding="0">
         <AppShell.Header>
-          <Container size="xl" h="100%">
-            <Group h="100%" px="xl">
-              <Title order={1} style={{ letterSpacing: "-0.5px" }}>
+          <Container size="xl" h="100%" className="header">
+            <Group h="100%" px="md" justify="space-between" align="center">
+              <Title
+                order={1}
+                style={{ letterSpacing: "-0.5px", fontWeight: 800 }}
+              >
                 Ollama UI
               </Title>
             </Group>
