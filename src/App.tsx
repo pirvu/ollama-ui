@@ -16,6 +16,7 @@ import api from "./services/api";
 import ModelList from "./components/ModelList";
 import RunningModels from "./components/RunningModels";
 import ModelDownload from "./components/ModelDownload";
+import HostConfigurator from "./components/HostConfigurator";
 
 function App() {
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -185,6 +186,7 @@ function App() {
               >
                 Ollama UI
               </Title>
+              <HostConfigurator />
             </Group>
           </Container>
         </AppShell.Header>
