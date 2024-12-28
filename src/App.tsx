@@ -21,7 +21,7 @@ import HostConfigurator from "./components/HostConfigurator";
 function App() {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [isOllamaRunning, setIsOllamaRunning] = useState(false);
-  const [isCheckingConnection, setIsCheckingConnection] = useState(true);
+  const [_isCheckingConnection, setIsCheckingConnection] = useState(true);
   const [initialCheckDone, setInitialCheckDone] = useState(false);
 
   useEffect(() => {
@@ -57,9 +57,9 @@ function App() {
     };
   }, [initialCheckDone]);
 
-  const handleModelPull = (modelName: string) => {
-    setIsRefreshing(true);
-  };
+  // const handleModelPull = (_modelName: string) => {
+  //   setIsRefreshing(true);
+  // };
 
   const handleRefresh = () => {
     setIsRefreshing(false);
@@ -97,7 +97,7 @@ function App() {
         <RunningModels />
         <ModelDownload onModelPulled={handleRefresh} />
         <ModelList
-          onModelPull={handleModelPull}
+          // onModelPull={handleModelPull}
           onRefresh={handleRefresh}
           isLoading={isRefreshing}
         />

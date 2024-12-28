@@ -1,16 +1,6 @@
+import { Alert, Loader, Paper, Stack, Table, Text } from "@mantine/core";
 import { useEffect, useState } from "react";
-import {
-  Table,
-  Text,
-  Group,
-  Box,
-  Paper,
-  Alert,
-  Stack,
-  Loader,
-} from "@mantine/core";
-import { RunningModel } from "../services/api";
-import api from "../services/api";
+import api, { RunningModel } from "../services/api";
 
 export default function RunningModels() {
   const [models, setModels] = useState<RunningModel[]>([]);

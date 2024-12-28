@@ -1,17 +1,15 @@
-import { useState } from "react";
 import {
-  TextInput,
   Button,
-  Progress,
-  Text,
-  Stack,
   Group,
   Paper,
-  Box,
+  Progress,
+  Stack,
+  Text,
+  TextInput,
 } from "@mantine/core";
 import { IconDownload, IconPackage } from "@tabler/icons-react";
-import { PullProgress } from "../services/api";
-import api from "../services/api";
+import { useState } from "react";
+import api, { PullProgress } from "../services/api";
 
 interface DownloadItem {
   modelName: string;
@@ -95,7 +93,7 @@ export default function ModelDownload({
             />
           }
           size="md"
-          styles={(theme) => ({
+          styles={(_theme) => ({
             input: {
               "&:focus": {
                 borderColor: "var(--mantine-color-indigo-5)",

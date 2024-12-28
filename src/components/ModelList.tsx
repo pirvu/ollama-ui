@@ -1,31 +1,23 @@
-import { useEffect, useState } from "react";
 import {
-  Table,
-  Button,
-  Text,
-  Group,
-  ActionIcon,
-  Loader,
-  Box,
-  Paper,
   Alert,
+  Button,
+  Group,
+  Loader,
+  Paper,
   Stack,
+  Table,
+  Text,
 } from "@mantine/core";
-import { IconTrash, IconRefresh } from "@tabler/icons-react";
-import { Model } from "../services/api";
-import api from "../services/api";
+import { IconRefresh, IconTrash } from "@tabler/icons-react";
+import { useEffect, useState } from "react";
+import api, { Model } from "../services/api";
 
 interface ModelListProps {
-  onModelPull: (modelName: string) => void;
   onRefresh: () => void;
   isLoading: boolean;
 }
 
-export default function ModelList({
-  onModelPull,
-  onRefresh,
-  isLoading,
-}: ModelListProps) {
+export default function ModelList({ onRefresh, isLoading }: ModelListProps) {
   const [models, setModels] = useState<Model[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
