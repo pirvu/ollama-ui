@@ -4,7 +4,8 @@ import {
   InternalRequestConfigWithRetry,
 } from "./types";
 
-const OLLAMA_API = "/api";
+const OLLAMA_HOST = "http://192.168.0.4:11434";
+const OLLAMA_API = OLLAMA_HOST + "/api";
 
 const axiosInstance = axios.create({
   baseURL: OLLAMA_API,
